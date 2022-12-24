@@ -12,7 +12,13 @@ def send_welcome(message):
     welcome_text = """
     Привет! Я умею рассказывать стихи, знаю много интересных фактов и могу показать милых котиков!
     """
-    bot.send_message(message.chat.id,  welcome_text)
+    keyboard=telebot.types.ReplyKeyboardMarkup(row_width=2,resize_keyboard=True,one_time_keyboard=False)
+    button1=telebot.types.KeyboardButton("Факт")
+    button2=telebot.types.KeyboardButton("Стихотворение")
+    #button3=
+    #button4=
+    keyboard.add(button1,button2)
+    bot.send_message(message.chat.id,  welcome_text,reply_markup=keyboard)
 
 @bot.message_handler(commands=['poem'])
 def send_poem(message):
@@ -22,7 +28,7 @@ def send_poem(message):
 @bot.message_handler(commands=['fact'])
 def send_fact(message):
     response = requests.get('https://i-fakt.ru/').content
-    html = BeautifulSoup(response, 'lxml')
+    html = BeautifulSoup(response, "html.parser")
     fact = random.choice(html.find_all(class_='p-2 clearfix'))
     fact_link =  fact.a.attrs['href']
     bot.send_message(message.chat.id, fact_link)
