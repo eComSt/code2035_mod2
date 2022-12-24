@@ -3,7 +3,7 @@ import requests
 import random
 from bs4 import BeautifulSoup
 
-token = '5524996295:AAHtOiD0uHT3RQG6H2oEUxpbRSoT3ra7YRA'
+token = '5639198841:AAGGyjQM3G2T8xuFU6YotYx7xfUZAvYKwto'
 bot = telebot.TeleBot(token)
 
 
@@ -23,7 +23,10 @@ def send_welcome(message):
 @bot.message_handler(commands=['poem'])
 def send_poem(message):
     poem_text = "Муха села на варенье, вот и все стихотворенье..."
-    bot.send_message(message.chat.id, poem_text)
+    keyboard= telebot.types.InlineKeyboardMarkup(row_width=1)
+    button_url=telebot.types.InlineKeyboardButton("Перейти",url="https://stihi.ru")
+    keyboard.add(button_url)
+    bot.send_message(message.chat.id, poem_text,reply_markup=keyboard)
 
 @bot.message_handler(commands=['fact'])
 def send_fact(message):
@@ -39,6 +42,10 @@ def send_cat(message):
     cat_img = open('img/' + cat_number + '.jpg', 'rb')
     bot.send_photo(message.chat.id, cat_img)
 
+@bot.message_handler(content_types=['text'])
+def answear(message):
+    if message.text.strip() == "Факт":send_fact(message)
+    elif message.text.strip() == "Стихотворение":send_poem(message)
 
 bot.polling()
 
