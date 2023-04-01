@@ -1,9 +1,18 @@
-import vk_api,requests,datetime
+import requests
 from bs4 import BeautifulSoup
-def course_get():
-    today = datetime.today().strftime("%d.%m.%Y")
-    url = "http://www.cbr.ru/scripts/XML_daily.asp?"
-    payload = {"date_req":today}
-    response = requests.get(url,params = payload)
-    xml = BeautifulSoup(response.content,"lxml")
-    return str(xml.find("valute",{"id":"R01335"}).value.text)
+from datetime import datetime
+
+url = "http://www.cbr.ru/scripts/XML_daily.asp?"
+
+today = datetime.today()
+today = today.strftime("%d/%m/%Y")
+
+payload = {"date_req": today}
+
+response = requests.get(url, params=payload)
+
+xml = BeautifulSoup(response.content, 'lxml')
+
+
+def get_course(currency):
+    return str(xml.find("valute", {'id': currency}).value.text)
