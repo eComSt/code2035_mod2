@@ -28,6 +28,7 @@ for event in longpoll.listen():
             article = msg[2:]
             ans = wiki.get_wiki_article(article)
         elif msg.startswith("-к"):
+            article = msg[2:]
             ans = "{0} рублей за 1 доллар\n{1} рублей за 1 евро".format( get_course("R01235"), get_course("R01239"))
         else:
             ans = "Неизвестная комманда"
