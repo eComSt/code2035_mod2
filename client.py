@@ -9,8 +9,10 @@ print(f"[+] Connected")
 name = input("Enter your name: ")
 def listen():
     while True:
-        data = s.recv(1024)
-        print("\n"+data.decode('utf-8'))
+        try:
+            data = s.recv(1024)
+            print("\n"+data.decode('utf-8'))
+        except:pass
 t = threading.Thread(target=listen)
 t.daemon = True
 t.start()
