@@ -1,0 +1,3 @@
+django-admin startproject advertisements
+python3 manage.py startapp app_adv
+python3 manage.py runserver
