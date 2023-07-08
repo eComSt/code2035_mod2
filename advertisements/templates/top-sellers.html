@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/fontello.css">
-  <title>Index</title>
-</head>
-
-<body>
+{% block title %} Топ-продавцов {% endblock %}
+{% block content %}
   <ul class="nav nav-pills sticky-top bg-white nav-fill">
     <li class="nav-item">
-      <a class="nav-link"  href="index.html">
+      <a class="nav-link"  href="/">
         <span style="font-weight: bold;">Главная</span>
       </a>
     </li>
@@ -57,7 +47,6 @@
   </div>
   <div class="container" style="min-height: 452px">
     <ul class="list-group list-group-numbered">
-
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
           <div class="fw-bold">Ваня
@@ -112,7 +101,4 @@
       </div>
     </nav>
   </footer>
-  <script src="js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+{% endblock %}

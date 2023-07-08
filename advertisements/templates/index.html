@@ -1,26 +1,18 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Главная
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-  <title>Index</title>
-</head>
-
-<body>
+{% block content %}
 <ul class="nav nav-pills sticky-top bg-white nav-fill">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="index.html">
+    <a class="nav-link active" aria-current="page" href="{% url 'main-page' %}">
       <span style="font-weight: bold;">Главная</span>
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="top-sellers.html"><span style="font-weight: bold;">Топ продавцов</span>
+    <a class="nav-link" href="{% url 'top-sellers' %}"><span style="font-weight: bold;">Топ продавцов</span>
     </a>
   </li>
   <li class="nav-item">
@@ -53,13 +45,13 @@
 <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/adv.png" class="mx-auto d-block w-33" alt="...">
+      <img src="{% static 'img/adv.png' %}" class="mx-auto d-block w-33" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/adv.png" class="mx-auto d-block w-33" alt="...">
+      <img src="{% static 'img/adv.png' %}" class="mx-auto d-block w-33" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/adv.png" class="mx-auto d-block w-33" alt="...">
+      <img src="{% static 'img/adv.png' %}" class="mx-auto d-block w-33" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -106,7 +98,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <a href="advertisement.html" class="nav-link">
-            <img src="img/adv.png" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% static 'img/adv.png' %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
@@ -133,7 +125,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <a href="advertisement.html" class="nav-link">
-            <img src="img/adv.png" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% static 'img/adv.png' %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
@@ -160,7 +152,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <a href="advertisement.html" class="nav-link">
-            <img src="img/adv.png" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% static 'img/adv.png' %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
@@ -216,7 +208,4 @@
     </div>
   </nav>
 </footer>
-<script src="js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+{% endblock %}
