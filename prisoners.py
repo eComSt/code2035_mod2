@@ -72,4 +72,7 @@ g = Game(matches=10)
 g.play(Detective("Detective"),Mirror("Mirror"))
 for i in g.registry:
     print(i,g.registry[i])
+<<<<<<< HEAD
 
+=======
+>>>>>>> 729cfa7550f53ef5444493a81bb6779b46dca098
