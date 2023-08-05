@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('adm/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('',include("app_advertisements.urls"))
 ]
