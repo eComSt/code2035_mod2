@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Разместить объявление
+{% endblock %}
+
+{% block content %}
+<ul class="nav nav-pills sticky-top bg-white nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'main-page' %}">
+      <span style="font-weight: bold;">Главная</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'top-sellers' %}"><span style="font-weight: bold;">Топ продавцов</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'adv-post' %}">
+      <span style="font-weight: bold;">Разместить объявление</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="register.html">
+      <span style="font-weight: bold;">Регистрация</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'login' %}">
+      <span style="font-weight: bold;">Войти</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'profile' %}">
+      <span style="font-weight: bold;">Профиль</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'logout' %}">
+      <span style="font-weight: bold;">Выйти</span>
+    </a>
+  </li>
+</ul>
+<div class="row">
+  <div class="col" style="margin: 50px;">
+    <div class="display-2">
+      <span class="badge bg-primary">Сообщите миру об этом в этой форме</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <div class="row mb-3 offset-sm-4">
+      <div class="col-6">
+        {{ form.as_p }}
+      </div>
+    <div class="row mb-3 offset-sm-2">
+      <div class="col">
+        <button type="submit" class="btn btn-success">Принять</button>
+      </div>
+    </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
