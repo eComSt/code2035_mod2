@@ -13,7 +13,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="advertisement-post.html">
+    <a class="nav-link" href="{% url 'adv-post' %}">
       <span style="font-weight: bold;">Разместить объявление</span>
     </a>
   </li>
@@ -96,7 +96,8 @@
       <div class="row g-0">
         <div class="col-md-4">
           <a href="advertisement.html" class="nav-link">
-            <img src="{% if adv.image %} {{ adv.image.url }} {% endif %}" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% if adv.image %} {{ adv.image.url }} {% else %} {% static 'img/adv.png' %} {% endif %}" class="img-fluid rounded-start" alt="Card title">
+          </a>
           </a>
         </div>
         <div class="col-md-8">
